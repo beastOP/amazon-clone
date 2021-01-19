@@ -1,0 +1,42 @@
+@import url(//db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgba(234, 237, 237);
+  font-family: 'Amazon Ember', 'Roboto', Sans-Serif;
+}
+
+.Cont {
+  min-height: calc(100vh - 435px);
+}
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: all 300ms linear 150ms;
+}
+.fade-exit {
+   opacity: 1;
+ } 
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: all 300ms linear 15ms;
+}
+
+@media only screen and (max-width: 600px) {
+.Cont {
+  min-height: calc(100vh - 200px);
+}
+}

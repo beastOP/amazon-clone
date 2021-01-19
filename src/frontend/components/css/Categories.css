@@ -1,0 +1,29 @@
+.Category {
+  background: #fff;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.Category > a {
+  display: flex;
+  text-decoration: none;
+  color: #000;
+  flex-direction: column;
+}
+
+.Category > a > h6 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.Category > a > img {
+  border-radius: 5px;
+  max-height: 250px;
+  object-fit: contain;
+  margin: 1em 0;
+}
+
+.Category > a > p {
+  cursor: pointer;
+  color: #007084;
+}
