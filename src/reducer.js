@@ -12,31 +12,34 @@ export const getBasketTotal = (basket) =>
 
 const reducer = (state, action) => {
     switch (action.type) {
+
+      //case 'UPDATE_ITEM_COUNT':
+      //  return {
+      //    ...state,
+      //    total: state.total + action.price,
+      //    items: state.items + 1,
+      //    basket: state.basket.map(item => item.id === action.id ? { ...item, count: item.count++ } : item) 
+      //  }
+
+      case 'DELETE_PRODUCT':
+        const index = state.basket.findIndex(item => item.id === action.id)
+        let newBasket = state.basket
+        if( index >= 0) {
+          newBasket.splice(index, 1)
+        }
+        return {
+          ...state,
+          items: state.items - 1,
+          total: state.total - action.price, 
+          basket: newBasket 
+       }
+
       case 'ADD_TO_BASKET':
         return {
           ...state,
           total: state.total + action.item.price,
           items: state.items + 1,
           basket: [...state.basket, action.item]
-        }
-
-      case 'UPDATE_ITEM_COUNT':
-        return {
-          ...state,
-          total: state.total + action.price,
-          items: state.items + 1,
-          basket: state.basket.map(item => item.id === action.id ? { ...item, count: item.count++ } : item) 
-        }
-
-      case 'DELETE_PRODUCT':
-        const index = state.basket.findIndex( item => item.id === action.item.id)
-        const newBasket = state.basket
-        newBasket.splice(index,1)
-        return {
-          ...state,
-          items: state.items - action.item.count,
-          total: state.total - (action.item.count * action.item.price), 
-          basket: newBasket
         }
 
       case 'SET_USER':

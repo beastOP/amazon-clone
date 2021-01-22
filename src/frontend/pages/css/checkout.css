@@ -1,0 +1,20 @@
+.checkout_address_form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.checkout_address_form > label {
+  margin-top: 0.5em;
+}
+.checkout_address_form > label > input {
+  margin-top: 0.2em;
+  width: 100%;
+  padding: 0.2em 0.5em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fdbd69;
+}

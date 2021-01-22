@@ -7,7 +7,7 @@ const generatePage = page => {
     return <Component />;
   } catch (err) {
       console.warn(err)
-      return 'Under Construction'
+      return '404'
     }
 }
 

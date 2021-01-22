@@ -4,8 +4,9 @@ import './css/cart.css'
 import { useStateValue } from '../../StateProvider'
 
 const Cart = () => {
-  //eslint-disable-next-line
-  const [{items, basket, total}, dispatch] = useStateValue()
+  const [{items, basket, total},] = useStateValue()
+  //const [bask, setBask] = useState([])
+  //useEffect(() => setBask(basket), [basket])
   return (
     <div className='cart'>
         <div className='cart_container'>
@@ -31,9 +32,9 @@ const Cart = () => {
 }
 
 const CartProduct = ({ item }) => {
-  const { id, title, imageSrc, price, rating } = item
-  //eslint-disable-next-line
+  const { id, title, imageSrc, price, rating , count} = item
   const [{ basket }, dispatch] = useStateValue()
+  const [del, setDel] = useState(false)
   const [itemCount, setItemCount] = useState(0)
   useEffect(() => {
     setItemCount(basket.find(item => item.id === id).count)
@@ -41,8 +42,11 @@ const CartProduct = ({ item }) => {
   const deleteProduct = () => {
     dispatch({
       type: 'DELETE_PRODUCT',
-      item: item
+      id: id,
+      price: parseInt(price),
+      count: count
     })
+    setDel(!del)
   }
   return (
     <div className='cart_product'>

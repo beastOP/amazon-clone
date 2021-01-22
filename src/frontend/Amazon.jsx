@@ -43,6 +43,7 @@ function Amazon() {
             <Route exact  path='/:page' component={PageRenderer} />
             <Route path='/categories/:slug' component={Categories} />
             <Route path='/products/:id' component={Product} />
+            <Route component={() => 404} />
           </Switch>
         </ScrollToTop>
       </div>

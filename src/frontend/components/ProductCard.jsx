@@ -6,15 +6,15 @@ import { useStateValue } from '../../StateProvider'
 const ProductCard = ({ id, title, price, rating, imageSrc }) => {
   //eslint-disable-next-line
   const [{ basket }, dispatch] = useStateValue()
-  const item = basket.find(item => item.id === id)
+  //const item = basket.find(item => item.id === id)
   const addToCart = () => {
-    if(item) {
-      dispatch({
-        type: 'UPDATE_ITEM_COUNT',
-        id: id,
-        price: parseInt(price)
-      })
-    } else {
+    //if(item) {
+    //  dispatch({
+    //    type: 'UPDATE_ITEM_COUNT',
+    //    id: id,
+    //    price: parseInt(price)
+    //  })
+    //} else {
       dispatch({
         type: 'ADD_TO_BASKET',
         item: {
@@ -26,7 +26,7 @@ const ProductCard = ({ id, title, price, rating, imageSrc }) => {
           imageSrc: imageSrc
         }
       })
-    }
+    //}
   }
   return (
     <div key={id} className="product">
