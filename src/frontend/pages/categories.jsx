@@ -45,12 +45,17 @@ const Ratings = ({ratings, category}) => {
   })
   return (
     <React.Fragment>
+      {filters['Product Rating'] === ratings && filters.category === category &&
+        <div onClick={remove} className='clear_container'>
+          <img alt='' width='10px' src='https://image.flaticon.com/icons/png/512/32/32542.png' />
+          <p>Clear</p>
+        </div>
+      }
       <p className='stars' onClick={handleClick}>
         {stars}
         {dry}
         <span> & up </span>
       </p>
-      {filters['Product Rating'] === ratings && filters.category === category && <img className='img' width='30px' onClick={remove} src='https://icon-library.com/images/cancel-icon-png/cancel-icon-png-12.jpg' alt='X' />}
     </React.Fragment>
   )
 }

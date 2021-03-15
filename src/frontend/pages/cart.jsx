@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './css/cart.css'
 import { useStateValue } from '../../StateProvider'
+import CartProduct from '../components/CartProducts'
 
 const Cart = () => {
   const [{items, basket, total},] = useStateValue()
@@ -31,39 +32,5 @@ const Cart = () => {
   )
 }
 
-const CartProduct = ({ item }) => {
-  const { id, title, imageSrc, price, rating , count} = item
-  const [{ basket }, dispatch] = useStateValue()
-  const [del, setDel] = useState(false)
-  const [itemCount, setItemCount] = useState(0)
-  useEffect(() => {
-    setItemCount(basket.find(item => item.id === id).count)
-  }, [basket, id])
-  const deleteProduct = () => {
-    dispatch({
-      type: 'DELETE_PRODUCT',
-      id: id,
-      price: parseInt(price),
-      count: count
-    })
-    setDel(!del)
-  }
-  return (
-    <div className='cart_product'>
-      <img src={imageSrc} alt={title} />
-      <div className='cart_product_info'>
-        <p>{title.substring(0,120)}...</p>
-        <strong style={{display: 'flex', marginTop: '0.3em'}}>$ {price} </strong>
-        <div style={{display: 'flex', marginTop: '0.3em'}}>
-          {Array(rating).fill().map(i => <div>⭐</div>)} 
-        </div>
-        <div className='cart_button'>
-          <span> Qty : {itemCount} </span> 
-          <button onClick={deleteProduct}>Remove</button>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default Cart

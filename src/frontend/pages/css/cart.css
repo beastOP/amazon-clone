@@ -3,6 +3,17 @@
   grid-template-columns:  repeat(auto-fit, minmax(auto, 600px)) ;
   min-height: calc(100vh - 200px);
   padding: 1em;
+  transition: all 0.5s ease;
+}
+
+.animate {
+  animation-name: product!important;
+  animation-duration: 0.5s!important;
+}
+
+@keyframes product {
+  from { opacity: 1 }
+  to { margin-left: -100px; opacity: 0 }
 }
 
 .cart_total {
